@@ -12,27 +12,41 @@ function test_input($data) {
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $first_name = $_POST["first_name"];
-    echo "First Name: ".$first_name;
+    //Validating against empty fields
+    $first_name = test_input($_POST["first_name"]);
     if ($first_name=="") {
-        echo "I am called";
         $first_name_error = "First Name field can't be empty";
     }
-    $last_name = $_POST["last_name"];
+
+    $last_name =test_input($_POST["last_name"]);
     if ($last_name=="") {
         $last_name_error = "Last Name field can't be empty";
     }
-    $email = $_POST["email"];
+
+    $email =test_input($_POST["email"]);
     if ($email=="") {
         $email_error = "Email field can't be empty";
     }
 
-    $filtered_first_name =  test_input($first_name);
-    echo "The filtered first Name: ".$filtered_first_name;
+    $password =test_input($_POST["password"]);
+    if ($password=="") {
+        $password_error = "password field can't be empty";
+    }
 
+    $conf_password =test_input($_POST["conf_password"]);
+    if ($conf_password=="") {
+        $conf_password_error = "confirm password field can't be empty";
+    }
 
+    //Validating against password mismatch 
     $password = $_POST["password"];
-    $conf_password = $_POST["conf_password"];    
+    $conf_password = $_POST["conf_password"];
+    
+    if ($password!=$conf_password) {
+        $conf_password_error = "Password mismatch";
+    }
+
+
     
 }
 
