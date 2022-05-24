@@ -1,0 +1,90 @@
+/* VARIABLES */
+:root {
+   --color-main: rgb(0, 82, 204);
+   --dim-header-height: 60px;
+}
+
+/* GLOBAL STYLES */
+html,
+body {
+   margin: 0;
+   padding: 0;
+   font: 400 15px/1.5 'Montserrat';
+}
+
+a {
+   text-decoration: none;
+}
+
+ol,
+ul {
+   list-style: none;
+   padding: 0;
+}
+
+button,
+input,
+textarea,
+select {
+   outline: none;
+}
+
+.container {
+   padding-left: 1rem;
+   padding-right: 1rem;
+}
+
+.flex-row {
+   display: flex;
+   flex-direction: row;
+}
+
+.flex-column {
+   display: flex;
+   flex-direction: column;
+}
+
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.align-center { align-items: center; }
+.align-start { align-items: flex-start; }
+.align-end { align-items: flex-end; }
+
+.height-100 { min-height: 100%; }
+
+.btn {
+   font-family: 'Montserrat';
+   padding: 0.25em 0.75em;
+   border: 1px solid rgb(168 162 162);
+}
+
+input {
+   padding: 0.25em 0.75em;
+   border: 1px solid rgb(168 162 162);
+}
+
+
+
+/* HEADER */
+#header {
+   min-height: var(--dim-header-height);
+   color: rgb(255 255 255); 
+   background-color: var(--color-main);
+}
+
+.header a {
+   color: rgb(255 255 255);
+}
+
+.header > .container > div {
+   min-height: var(--dim-header-height);
+}
+
+
+/* MAIN CONTENT */
+#main-content {
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+}
