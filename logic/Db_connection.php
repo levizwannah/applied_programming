@@ -2,6 +2,7 @@
 
 class DBConnection 
 {
+    protected $conn;
     private $servername, $username, $password, $dbname;
 
     //Constructor
@@ -15,18 +16,27 @@ class DBConnection
 
         // Check connection
         if ($conn->connect_error) {
-            return null;
+            $this->conn= null;
         }
 
-        return $conn;
+        $this->conn = $conn;
     }
 
     //Method to insert data in the database
     public function insertData($sql){
         //To be implemented in the next class
+        
+
+
+        if ($this->conn->query($sql) === TRUE) {
+            echo "The user is added successfully";
+          } else {
+            echo "Error: " . $sql . "<br>" . $this->conn->error;
+          }
+          
+          $this->conn->close();
     }
 
 }
-
 
 ?>

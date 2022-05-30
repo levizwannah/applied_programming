@@ -47,6 +47,17 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
 
 
+    //Time to put the collected data in the database
+    
+    $user = new User();
+    $user->setFirstName($first_name);
+    $user->setLastName($last_name);
+    $user->setEmail($email);
+    $user->setPassword($password);
+    $user->addUser();
+    
+
+
     
 }
 

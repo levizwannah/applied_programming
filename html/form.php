@@ -5,6 +5,8 @@
 
 
 <?php
+    require "../logic/Db_connection.php";
+    require "../logic/user.php";
     require "../logic/form_logic.php";
 ?>
 <h2>Registeration</h2>
