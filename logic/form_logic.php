@@ -1,4 +1,6 @@
 <?php
+ require_once "../logic/Db_connection.php";
+ require_once "../logic/user.php";
 
 $first_name_error= $last_name_error =$email_error= $password_error=$conf_password_error="";
 
