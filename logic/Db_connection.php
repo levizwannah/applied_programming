@@ -10,7 +10,7 @@ class DBConnection
         $this->servername = "localhost";
         $this->username = "root";
         $this->password = "";
-        $this->db_name = "applied_programming";
+        $this->dbname = "applied_programming";
 
         $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 
