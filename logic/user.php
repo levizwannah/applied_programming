@@ -44,13 +44,29 @@ class User
     }
 
 
+    public function login(){
+        $dbConnection = new DBConnection();
+        
+        $sql = "SELECT user_id, firstname, lastname, password FROM user WHERE email='$this->email'";
+
+        $result = $dbConnection->query($sql);
+        $password = $result["password"];
+        $firstname =$result['firstname'];
+        $lastname =$result['lastname']; 
+
+        if(password_verify($this->password,$password)){
+            return $firstname." ". $lastname. " ". "Logged in successfully";
+        }else{
+            return "Wrong credentials";
+        }
+    }
     public function addUser(){
         $dbConnection = new DBConnection();
         
         $sql = "INSERT INTO user (firstname, lastname, email, password)
         VALUES ('$this->firstName', '$this->lastName', '$this->email', '$this->password')";
 
-        $dbConnection->insertData($sql);
+        return $dbConnection->insertData($sql);
     }
 
     public function deleteUser(){

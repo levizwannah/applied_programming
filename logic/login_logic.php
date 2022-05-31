@@ -15,16 +15,7 @@ function test_input($data) {
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     //Validating against empty fields
-    $first_name = test_input($_POST["first_name"]);
-    if ($first_name=="") {
-        $first_name_error = "First Name field can't be empty";
-    }
-
-    $last_name =test_input($_POST["last_name"]);
-    if ($last_name=="") {
-        $last_name_error = "Last Name field can't be empty";
-    }
-
+  
     $email =test_input($_POST["email"]);
     if ($email=="") {
         $email_error = "Email field can't be empty";
@@ -35,28 +26,18 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $password_error = "password field can't be empty";
     }
 
-    $conf_password =test_input($_POST["conf_password"]);
-    if ($conf_password=="") {
-        $conf_password_error = "confirm password field can't be empty";
-    }
 
-    //Validating against password mismatch 
     $password = $_POST["password"];
-    $conf_password = $_POST["conf_password"];
-    
-    if ($password!=$conf_password) {
-        $conf_password_error = "Password mismatch";
-    }
+
+
 
 
     //Time to put the collected data in the database
     
     $user = new User();
-    $user->setFirstName($first_name);
-    $user->setLastName($last_name);
     $user->setEmail($email);
     $user->setPassword($password);
-    return $user->addUser();
+    $user->login();
     
 
 

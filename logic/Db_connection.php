@@ -26,15 +26,21 @@ class DBConnection
     public function insertData($sql){
         //To be implemented in the next class
         
-
+        $message="";
 
         if ($this->conn->query($sql) === TRUE) {
-            echo "The user is added successfully";
+            $message = "The user is added successfully";
           } else {
-            echo "Error: " . $sql . "<br>" . $this->conn->error;
+            $message = "Error: " . $sql . "<br>" . $this->conn->error;
           }
           
           $this->conn->close();
+          return $message;
+    }
+
+    public function query(){
+        //Get data from the database using select statement 
+        //To be done with Mr. Levi
     }
 
 }
