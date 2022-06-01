@@ -9,9 +9,29 @@
 
    <!-- CSS -->
    <link rel="stylesheet" href="./css/main.css">
+
+   <!-- FA -->
+   <script src="https://kit.fontawesome.com/e307a20384.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
+   <div class="popup popup-new-group" data-popid="popup-new-group">
+      <div class="popup-shadow">
+         <form class="popup-content" action="#">
+            <div class="popup-header">
+               New group
+            </div>
+            <div class="popup-body">
+               <input type="text" name="group-name" class="width-100" placeholder="Group name">
+            </div>
+            <div class="popup-footer">
+               <button class="btn btn-popup-cancel" type="reset" role="popup-close">Cancel</button>
+               <button class="btn btn-popup-cta" type="submit">Create group</button>
+            </div>
+         </form>
+      </div>
+   </div>
 
    <header id="header" class="header">
       <div class="container">
@@ -22,7 +42,7 @@
 
             <nav class="nav">
                <div class="flex-row">
-                  <button class="btn btn-cta">Logout</button>
+                  <button class="btn-transparent text-uppercase">Logout</button>
                </div>
             </nav>
          </div>
@@ -31,38 +51,69 @@
 
    <main id="main-content" class="main-content">
       <div class="container">
-         <form action="#" class="add-task-form">
-            <input type="text" name="todo-input" id="todo-input">
-            <button type="submit" class="btn btn-cta">Add</button>
-         </form>
 
-         <ul class="todo-list">
-            <li class="todo-item">
-               <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione fuga sequi voluptatem. Ad, itaque voluptatum.</div>
-               <div class="todo-options">
-                  <button class="btn btn-cta">Update</button>
-                  <button class="btn btn-danger">Delete</button>
-               </div>
+         <ul class="todo-groups">
+            <li>
+               <a class="group-item flex-row" href="./html/todos.php">
+                  <div class="icon">
+                     <i class="fa-solid fa-list"></i>
+                  </div>
+                  <div class="content flex-grow-1">
+                     Today
+                  </div>
+                  <div class="items-count">
+                     5
+                  </div>
+               </a>
             </li>
 
-            <li class="todo-item">
-               <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione fuga sequi voluptatem. Ad, itaque voluptatum.</div>
-               <div class="todo-options">
-                  <button class="btn btn-cta">Update</button>
-                  <button class="btn btn-danger">Delete</button>
-               </div>
+            <li>
+               <a class="group-item flex-row" href="#">
+                  <div class="icon">
+                     <i class="fa-solid fa-list"></i>
+                  </div>
+                  <div class="content flex-grow-1">
+                     Tomorrow
+                  </div>
+                  <div class="items-count">
+                     3
+                  </div>
+               </a>
             </li>
-            
-            <li class="todo-item">
-               <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione fuga sequi voluptatem. Ad, itaque voluptatum.</div>
-               <div class="todo-options">
-                  <button class="btn btn-cta">Update</button>
-                  <button class="btn btn-danger">Delete</button>
-               </div>
+
+            <li>
+               <a class="group-item flex-row" href="#">
+                  <div class="icon">
+                     <i class="fa-solid fa-list"></i>
+                  </div>
+                  <div class="content flex-grow-1">
+                     Shopping list 2022-06-04
+                  </div>
+                  <div class="items-count">
+                     10
+                  </div>
+               </a>
             </li>
          </ul>
+
+         <button class="btn-new-list btn-transparent" role="popup-new-group">
+            <div class="container">
+               <div class="content flex-row align-center">
+                  <div class="icon">
+                     <i class="fa-solid fa-plus"></i>
+                  </div>
+                  <div class="text">
+                     New group
+                  </div>
+               </div>
+            </div>
+         </button>
       </div>
    </main>
+
+   <footer>
+      <script src="./js/dom/popup.js"></script>
+   </footer>
 
 </body>
 
