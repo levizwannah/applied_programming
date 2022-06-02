@@ -16,12 +16,6 @@
 
 <body>
 
-    <?php
-    require "../logic/Db_connection.php";
-    require "../logic/user.php";
-    require "../logic/login_logic.php";
-    ?>
-
     <main class="login-main">
         <div class="container">
             <div class="login-icon text-center">
@@ -33,19 +27,20 @@
                 <h3 class="login-title text-center">Login</h3>
             </div>
 
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <form >
                 <div class="form-field">
                     <label for="email">E-mail:</label>
-                    <input type="email" class="width-100" name="email" id="email"><?php echo $email_error; ?>
+                    <input type="email" class="width-100" name="email" id="email">
                 </div>
 
                 <div class="form-field">
                     <label for="email">Password:</label>
-                    <input type="password" class="width-100" name="password" id="password"><?php $password_error ?>
+                    <input type="password" class="width-100" name="password" id="password">
                 </div>
 
                 <!-- <input type="submit" name="Login"> -->
-                <button type="button" class="btn btn-cta btn-login width-100" id="submit">Login</button>
+                <button type="button" class="btn btn-cta btn-login width-100 form-field" id="submit">Login</button>
+                <button type="button" class="btn btn-cta btn-login width-100" onclick="location.href='form.php'">Register</button>
             </form>
         </div>
     </main>
@@ -53,7 +48,7 @@
 
     <footer>
         <script src="../js/util.js"></script>
-        <script src="../js/signup.js"></script>
+        <script src="../js/login.js"></script>
     </footer>
 </body>
 

@@ -16,12 +16,6 @@
 
 <body>
 
-    <?php
-    require "../logic/Db_connection.php";
-    require "../logic/user.php";
-    require "../logic/form_logic.php";
-    ?>
-
     <main class="register-main">
         <div class="container">
             <div class="register-icon text-center">
@@ -33,31 +27,31 @@
                 <h3 class="register-title text-center">Registration</h3>
             </div>
 
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <form>
 
                 <div class="form-field">
                     <label for="email">First Name:</label>
-                    <input type="text" class="width-100" name="first_name" id="first-name"><?php echo $first_name_error; ?>
+                    <input type="text" class="width-100" name="first_name" id="first-name">
                 </div>
 
                 <div class="form-field">
                     <label for="email">Last Name:</label>
-                    <input type="text" class="width-100" name="last_name" id="last-name"><?php echo $last_name_error; ?>
+                    <input type="text" class="width-100" name="last_name" id="last-name">
                 </div>
 
                 <div class="form-field">
                     <label for="email">E-mail:</label>
-                    <input type="email" class="width-100" name="email" id="email"><?php echo $email_error; ?>
+                    <input type="email" class="width-100" name="email" id="email">
                 </div>
 
                 <div class="form-field">
                     <label for="email">Password:</label>
-                    <input type="password" class="width-100" name="password" id="password"><?php $password_error ?>
+                    <input type="password" class="width-100" name="password" id="password">
                 </div>
 
                 <div class="form-field">
                     <label for="email">Confirm Password:</label>
-                    <input type="password" class="width-100" name="conf_password" id="conf-password"><?php $conf_password_error ?>
+                    <input type="password" class="width-100" name="conf_password" id="conf-password">
                 </div>
 
                 <!-- <input type="submit" name="Login"> -->

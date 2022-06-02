@@ -1,3 +1,9 @@
+<?php
+   # checks if the user is logged in
+   # if not, redirect them to the login page.
+   require(__DIR__. "/logic/auth.inc.php");
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,11 +29,11 @@
                New group
             </div>
             <div class="popup-body">
-               <input type="text" name="group-name" class="width-100" placeholder="Group name">
+               <input type="text" name="group-name" class="width-100" placeholder="Group name" id="group-name-add">
             </div>
             <div class="popup-footer">
                <button class="btn btn-popup-cancel" type="reset" role="popup-close">Cancel</button>
-               <button class="btn btn-popup-cta" type="submit">Create group</button>
+               <button class="btn btn-popup-cta" type="submit" id="add-group-btn">Create group</button>
             </div>
          </form>
       </div>
@@ -113,6 +119,8 @@
 
    <footer>
       <script src="./js/dom/popup.js"></script>
+      <script src="./js/util.js"></script>
+      <script src="./js/add_group.js"></script>
    </footer>
 
 </body>

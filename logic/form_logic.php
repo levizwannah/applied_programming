@@ -56,11 +56,29 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $user->setLastName($last_name);
     $user->setEmail($email);
     $user->setPassword($password);
-    return $user->addUser();
     
-
-
+    if(!$user->addUser()){
+        exit(
+            json_encode([
+                "status" => "UEO", # unknown error occurred,
+                "message" => "An error occurred while registering the user"
+            ])
+            );
+    }
     
+    exit(
+        json_encode([
+            "status" => "OK", # unknown error occurred,
+            "message" => "Successfully added the user"
+        ])
+        );  
 }
+
+exit(
+    json_encode([
+        "status" => "WME", # unknown error occurred,
+        "message" => "Wrong HTTP Method: POST allowed only"
+    ])
+    );
 
 ?>

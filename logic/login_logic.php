@@ -1,4 +1,6 @@
 <?php
+ session_start();
+ 
  require_once "../logic/Db_connection.php";
  require_once "../logic/user.php";
 
@@ -37,8 +39,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $user = new User();
     $user->setEmail($email);
     $user->setPassword($password);
-    $user->login();
-    
+    echo $user->login();
+    exit;
 
 
     

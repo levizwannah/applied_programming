@@ -32,6 +32,12 @@ function register(){
     })
 
     makeRequest("../logic/form_logic.php", formData, function(json){
-        console.log(json)
+        if(json.status == "OK"){
+            alert(json.message);
+            location.href = "login.php";
+        }
+        else{
+            alert(json.message);
+        }
     });
 }

@@ -2,7 +2,7 @@
 
 class User 
 {
-    private $firstName, $lastName, $email, $password;
+    private $id, $firstName, $lastName, $email, $password;
 
     public function __construct()
     {
@@ -47,19 +47,42 @@ class User
     public function login(){
         $dbConnection = new DBConnection();
         
-        $sql = "SELECT user_id, firstname, lastname, password FROM user WHERE email='$this->email'";
+        $sql = "SELECT * FROM user WHERE email='$this->email'";
 
         $result = $dbConnection->query($sql);
-        $password = $result["password"];
-        $firstname =$result['firstname'];
-        $lastname =$result['lastname']; 
 
-        if(password_verify($this->password,$password)){
-            return $firstname." ". $lastname. " ". "Logged in successfully";
+        if($result->num_rows < 1){
+            return json_encode(
+                [
+                    "status" => "WCE", #wrong credentials error
+                    "message" => "You entered a wrong username"
+                ]
+            );
+        }
+
+        $result = $result->fetch_all(MYSQLI_ASSOC)[0];
+
+        $password = $result["password"];
+        //$firstname =$result['firstname'];
+        //$lastname =$result['lastname']; 
+
+        if(!password_verify($this->password, $password)){
+            $_SESSION["user_id"] = $result["user_id"];
+
+            return json_encode([
+                "status" => "OK",
+                "message" => "Logged in successfully"
+            ]);
         }else{
-            return "Wrong credentials";
+            return json_encode(
+                [
+                    "status" => "WCE", #wrong credentials error
+                    "message" => "You entered a wrong password email is "
+                ]
+            );
         }
     }
+
     public function addUser(){
         $dbConnection = new DBConnection();
         
@@ -71,6 +94,10 @@ class User
 
     public function deleteUser(){
         
+    }
+
+    public function getGroups(){
+        return Group::getAll($this->id);
     }
 
 
